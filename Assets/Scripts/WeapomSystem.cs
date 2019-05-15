@@ -9,11 +9,12 @@ public class WeapomSystem : MonoBehaviour {
     }
     public static TypeWeapom currentWeapom;
     public LayerMask layerEnemie;
-
     [Space(10)]
     [Header("Sword")]
     public float damageSword;
     public float radius;
+    [Range(0f, 1f)]
+    public float slowAnimSpeed;
     public Transform postionHit;
     public GameObject hitEffetc;
     [Space(10)]
@@ -29,8 +30,8 @@ public class WeapomSystem : MonoBehaviour {
     private void Awake()
     {
         GameObject inventary = new GameObject("Invetary");
-        bows = new List<Transform>(20);
-        for(int cont = 0; cont<20; cont++)
+        bows = new List<Transform>(10);
+        for(int cont = 0; cont<10; cont++)
         {
             bows.Add(Instantiate(bowPrefab.transform, inventary.transform));
             bows[cont].gameObject.SetActive(false);
@@ -125,7 +126,7 @@ public class WeapomSystem : MonoBehaviour {
     IEnumerator slowAnim()
     {
         Animator animPlayer = playerScript.player.animChar;
-        animPlayer.SetFloat("velocityAnim", 0.1f);
+        animPlayer.SetFloat("velocityAnim", slowAnimSpeed);
         //string currentNameAnim = animPlayer.GetCurrentAnimatorClipInfo(0)[0].clip.name;
         //yield return new WaitUntil(() => !(animPlayer.GetCurrentAnimatorClipInfo(0)[0].clip.name == currentNameAnim));
         yield return new WaitForSeconds(0.35f);

@@ -178,6 +178,7 @@ MonoBehaviour:
     velocityX: 2
     beginDirection: 1
     isIdleCoroutine: 0
+    typeMode: 1
     posRay: {fileID: 4343217893231303690}
     layerLimits:
       serializedVersion: 2
@@ -186,6 +187,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 3072
     distanceRay: 0.5
+    delayAttak: 1
     playerTransform: {fileID: 0}
     distanceAttack: 1
     directionKnowBack: {x: 1, y: 0}

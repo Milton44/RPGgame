@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
         public Transform transA, transB;
     }
 
-    public Transform isWallLeft, isWallRight;
+    public Transform isWallLeft, isWallRight, positionRaycast;
     public Player player;
     public CheckGround checkGround; 
     public LayerMask layerEnemie;
@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour {
     private WeapomSystem weapomSystem;
     private bool colisionGround;
 
+    [HideInInspector]
+    public Vector3 localDownPosition;
     private void Awake()
     {
         instance = this;
@@ -100,6 +102,9 @@ public class PlayerController : MonoBehaviour {
 
         isWallLeft.localPosition = new Vector3(left, top, 0);
         isWallRight.localPosition = new Vector3(right, top, 0);
+        positionRaycast.localPosition = new Vector3(0, btm+0.1f, 0);
+
+        localDownPosition = new Vector3(0, btm, 0);
 
     }
 }

@@ -197,6 +197,7 @@ public class Monster : Character {
     }  
     public override void GetDamage(float damage)
     {
+        animChar.SetBool("Attack", false);                                   
         RgbChar.velocity = new Vector2(0, RgbChar.velocity.y);
         base.GetDamage(damage);
     }

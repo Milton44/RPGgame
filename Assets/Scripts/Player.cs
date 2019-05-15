@@ -169,9 +169,6 @@ public class Player : Character {
     {
         isGround = (Physics2D.Raycast(posA, Vector2.down, 0.05f, layerGround).collider != null ||
             Physics2D.Raycast(posB, Vector2.down, 0.05f, layerGround).collider != null) && RgbChar.velocity.y == 0;
-        //isGround = Physics2D.Raycast(posA, posB.normalized, Vector2.Distance(posA,posB), layerGround).collider != null;
-        //Debug.DrawRay(posA, posB.normalized, Color.red, 0.01f);
-        Debug.Log(RgbChar.velocity);
         animChar.SetBool("isGround", isGround);
         animChar.SetFloat("speedY", RgbChar.velocity.y);
     }

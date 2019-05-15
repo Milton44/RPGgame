@@ -10,6 +10,7 @@ public class AttackActionMonster : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (monster == null) monster = animator.GetComponent<EnemieController>().monster;
+        animator.SetBool("Attack", false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -353,7 +353,7 @@ Rigidbody2D:
   m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: ab4aa2364fa99a747a73808f4ac7fd03, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1424060323504129021
@@ -369,7 +369,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021004677, y: -0.11552405}
+  m_Offset: {x: -0.021004677, y: -0.16946179}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -380,7 +380,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.77764225, y: 1.6189519}
+  m_Size: {x: 0.77764225, y: 1.5110765}
   m_EdgeRadius: 0
 --- !u!114 &1424060323504129010
 MonoBehaviour:
@@ -396,6 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWallLeft: {fileID: 1424060323585581076}
   isWallRight: {fileID: 1424060324663510320}
+  positionRaycast: {fileID: 1424060323737211901}
   player:
     isDeath: 0
     desactiveControls: 0
@@ -411,7 +412,7 @@ MonoBehaviour:
     isBow: 0
     directionKnowBack: {x: 0.5, y: 0.3}
     forceKnowBack: 100
-    forceJump: 500
+    forceJump: 600
   checkGround:
     layerGround:
       serializedVersion: 2
@@ -423,7 +424,8 @@ MonoBehaviour:
     m_Bits: 512
   layerWall:
     serializedVersion: 2
-    m_Bits: 32768
+    m_Bits: 33024
+  localDownPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1424060323504129011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +474,7 @@ MonoBehaviour:
     m_Bits: 512
   damageSword: 300
   radius: 0.5
+  slowAnimSpeed: 0.15
   postionHit: {fileID: 1424060324476326440}
   hitEffetc: {fileID: 896083537334656760, guid: 01579445c4122f14fb52245b66879099,
     type: 3}

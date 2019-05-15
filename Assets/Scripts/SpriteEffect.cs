@@ -38,6 +38,7 @@ public class SpriteEffect : MonoBehaviour {
     public float distance;
     public bool debugRay;
 
+
     private float scaleX;
 
     [Space(10)]
@@ -131,19 +132,27 @@ public class SpriteEffect : MonoBehaviour {
     }
     private void ShadowEffect()
     {
-        RaycastHit2D ray = Physics2D.Raycast(positionRaycast.position, Vector2.down, distance, layerCollision);
-        if (debugRay) Debug.DrawRay(positionRaycast.position, Vector2.down, Color.red, 0.01f);
-        if (ray.transform != null)
+        RaycastHit2D[] rayAll = Physics2D.RaycastAll(positionRaycast.position, Vector2.down, distance, layerCollision);
+       
+        foreach (RaycastHit2D ray in rayAll)
         {
-            shadow.gameObject.SetActive(true);
-            shadow.position = ray.point;
-            float currentScalex = scaleX / ray.distance;
-            if (currentScalex > scaleX) currentScalex = scaleX;
-            shadow.localScale = new Vector3(currentScalex, shadow.localScale.y, shadow.localScale.z);
-        }
-        else
-        {
-            shadow.gameObject.SetActive(false);
+            if (transform.TransformPoint(PlayerController.instance.localDownPosition).y > ray.point.y)
+            {
+                if (debugRay) Debug.DrawRay(positionRaycast.position, Vector2.down, Color.red, 0.01f);
+                if (ray.transform != null)
+                {
+                    shadow.gameObject.SetActive(true);
+                    shadow.position = ray.point;
+                    float currentScalex = scaleX / ray.distance;
+                    if (currentScalex > scaleX) currentScalex = scaleX;
+                    shadow.localScale = new Vector3(currentScalex, shadow.localScale.y, shadow.localScale.z);
+                }
+                else
+                {
+                    shadow.gameObject.SetActive(false);
+                }
+                return;
+            }
         }
         
     }
